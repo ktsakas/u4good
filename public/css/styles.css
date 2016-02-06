@@ -1,0 +1,61 @@
+body {
+	margin: 0px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+	list-style-type: none;
+}
+
+ul li {
+	position: relative;
+}
+
+#header {
+	height: 60px;
+	width: 100%;
+	background-color: #252839;
+	color: white;
+	font-weight: 600;
+}
+
+#header .btn {
+	float: right;
+	display: inline-block;
+	padding: 20px 10px;
+}
+
+#goal_list .goal {
+	font-weight: 600;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+#goal_list .time {
+	height: 10px;
+	width: 100%;
+	background-color: yellow;
+	margin-bottom: 15px;
+}
+
+#goal_list .money {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-weight: bold;
+}
+
+#goal_list .failure {
+	font-size: 13px;
+	color: #333;
+}
+
+#goal_list .organization {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.centered {
+	width: 800px;
+	margin: auto;
+}

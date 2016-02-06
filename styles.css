@@ -7,3 +7,8 @@ body {
 	width: 100%;
 	background-color: red;
 }
+
+#main {
+	width: 800px;
+	background-color: #e6cf8b;
+}
