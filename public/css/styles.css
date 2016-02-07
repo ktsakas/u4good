@@ -11,6 +11,10 @@ ul li {
 	position: relative;
 }
 
+a {
+	text-decoration: none;
+}
+
 #header {
 	height: 60px;
 	width: 100%;
@@ -23,6 +27,7 @@ ul li {
 	float: right;
 	display: inline-block;
 	padding: 20px 10px;
+	color: white;
 }
 
 #goal_list .goal {

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="u4goodApp">
 <head>
 	<title>u4good</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body ng-controller="mainCtrl">
 
 	<div id="header">
-	<div class="centered">
+	<div class="centered" ng-controller="menuCtrl">
 		<!-- Logo on left side -->
 		<div id="logo"></div>
 
 		<!-- Right side buttons -->
-		<div class="btn">HOW THIS WORKS?</div>
-		<div class="btn">SET NEW GOAL</div>
+		<div ng-hide="loggedIn">
+			<a href="#how" class="btn" ng-controller="howCtrl">HOW THIS WORKS?</a>
+			<a href="#signUp" class="btn" ng-click="SignUp()" ng-controller="signUpCtrl">SIGN UP</a>
+		</div>
+
+		<div ng-show="loggedIn">
+			<a href="#newGoal" class="btn" ng-controller="newGoalCtrl">SET NEW GOAL</a>
+			<a href="#goals" class="btn" ng-controller="goalsCtrl">GOALS</a>
+		</div>
 	</div>
 	</div>
-<<<<<<< HEAD
-	<div id="main"><div class="centered">
-		<ul id="goal_list">
-			<li>
-				<div class="goal">Lose 10 pounds until Feb 05</div>
-				<div class="money">$50</div>
-				<div class="time"></div>
-				<div class="failure">If you fail the money will be donated to <span class="organization">Unicef</span></div>
-			</li>
-		</ul>
-	</div></div>
+
+	<div id="main"><div class="centered" ng-view></div></div>
+
 	<div id="footer"></div>
 
 	<!-- Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
 
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
