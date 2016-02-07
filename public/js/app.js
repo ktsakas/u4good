@@ -1,17 +1,5 @@
 var app = angular.module('u4goodApp', ['ngRoute', 'firebase']);
 
-/*app.controller('menuController', ['$scope', 'menuItems', '$location', function($scope, menuItems, $location) {
-	$scope.menuItems = menuItems;
-
-	$scope.isSelected = function(menuItem) {
-		return menuItem.path === $location.path();
-	};
-
-	$scope.click = function(menuItem) {
-		$location.path(menuItem.path);
-	};
-}]);*/
-
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: 'partials/goals.html',
@@ -24,6 +12,18 @@ app.config(['$routeProvider', function($routeProvider) {
 	.when('/goals', {
 		templateUrl: 'partials/goals.html',
 		controller: 'goalsCtrl'
+	})
+	.when('/how', {
+		templateUrl: 'partials/how.html',
+		controller: 'howCtrl'
+	})
+	.when('/home', {
+		templateUrl: 'partials/home.html',
+		controller: 'homeCtrl'
+	})
+	.when('/logout', {
+		templateUrl: 'partials/home.html',
+		controller: 'logoutCtrl'
 	});
 
 	// $locationProvider.hashPrefix('!');
@@ -35,7 +35,18 @@ app.controller('mainCtrl', function ($scope) {
 
 	// Check if the user is logged in
 	if (ref.getAuth()) {
+		console.log("we are in");
 		$scope.loggedIn = true;
+	} else {
+		ref.onAuth(function (authData) {
+			console.log("logged in", authData);
+			if (authData) {
+				$scope.loggedIn = true;
+				$scope.$apply();
+			} else {
+				$scope.loggedIn = false;
+			}
+		});
 	}
 
 	$scope.SignUp = function () {
@@ -43,20 +54,20 @@ app.controller('mainCtrl', function ($scope) {
 		if ($scope.loggedIn) return;
 
 		// Open facebook login popup
-		ref.authWithOAuthPopup("facebook", function(error, authData) {
-			if (error) {
-				console.log("Login Failed!", error);
-				$scope.loggedIn = false;
-			} else {
-				console.log("Authenticated successfully with payload:", authData);
-				$scope.loggedIn = true;
-				$scope.$apply();
-			}
-		});
+		ref.authWithOAuthPopup("facebook");
 	};
+
+	$scope.LogOut = function () {
+		ref.unauth();
+		
+		$scope.loggedIn = false;
+	}
 });
 
+
 app.controller('menuCtrl', function ($scope) {});
+app.controller('homeCtrl', function ($scope) {});
+app.controller('logoutCtrl', function ($scope) {});
 
 app.controller('signUpCtrl', function ($scope) {
 	console.log("how controller run");

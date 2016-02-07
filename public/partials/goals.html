@@ -1,15 +1,8 @@
 <ul id="goal_list" ng-repeat="goal in goals">
 	<li>
 		<div class="goal">{{goal.goal}} until Feb 05</div>
-		<div class="money">{{goal.money}}</div>
+		<div class="money">${{goal.money}}</div>
 		<div class="time"></div>
 		<div class="failure">If you fail the money will be donated to <span class="organization">{{goal.organization}}</span></div>
 	</li>
-
-	<!-- <li>
-		<div class="goal">Lose 10 pounds until Feb 05</div>
-		<div class="money">$50</div>
-		<div class="time"></div>
-		<div class="failure">If you fail the money will be donated to <span class="organization">Unicef</span></div>
-	</li> -->
 </ul>

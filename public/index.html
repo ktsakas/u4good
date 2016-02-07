@@ -5,28 +5,29 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 	<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="mainCtrl">
 
 	<div id="header">
 	<div class="centered" ng-controller="menuCtrl">
 		<!-- Logo on left side -->
-		<img src="images/small_logo.png" id="logo" />
+		<a href="#home"><img src="images/small_logo.png" id="logo" /></a>
 
 		<!-- Right side buttons -->
 		<div ng-hide="loggedIn">
-			<a href="#how" class="btn" ng-controller="howCtrl">HOW THIS WORKS?</a>
-			<a href="#signUp" class="btn" ng-click="SignUp()" ng-controller="signUpCtrl">SIGN UP</a>
+			<a href="#how" class="btn" ng-controller="howCtrl"><i class="fa fa-question-circle"></i>HOW IT WORKS</a>
+			<a href="#signUp" class="btn" ng-click="SignUp()" ng-controller="signUpCtrl"><i class="fa fa-sign-in"></i>SIGN IN</a>
 		</div>
 
 		<div ng-show="loggedIn">
-			<a href="#newGoal" class="btn" ng-controller="newGoalCtrl">SET NEW GOAL</a>
-			<a href="#goals" class="btn" ng-controller="goalsCtrl">GOALS</a>
+			<a href="#logout" class="btn" ng-click="LogOut()" ng-controller="logoutCtrl"><i class="fa fa-sign-out"></i>LOGOUT</a>
+			<a href="#newGoal" class="btn" ng-controller="newGoalCtrl"><i class="fa fa-plus"></i>SET NEW GOAL</a>
+			<a href="#goals" class="btn" ng-controller="goalsCtrl"><i class="fa fa-trophy"></i>GOALS</a>
 		</div>
 	</div>
 	</div>
 
-	<!-- <div id="main"><div class="centered" style="text-align: center;"><img src="images/logo.png" width="600" style="padding-top: 60px;" /></div></div> -->
 	<div id="main"><div class="centered" ng-view></div></div>
 
 	<div id="footer"></div>
@@ -45,8 +46,29 @@
 	<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
 
 
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 
+	<script>
+	document.domain = "localhost.dev";
+
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '1174109462611048',
+			xfbml      : true,
+			version    : 'v2.5'
+		});
+	};
+
+	(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 	<script src="js/app.js"></script>
 
 </body>
