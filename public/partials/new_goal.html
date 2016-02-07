@@ -1,8 +1,8 @@
 <form ng-hide="success" ng-submit="createGoal()" class="ui form">
-	Set a new goal: <br />
+	<div class="newGoalIntro">Set a new goal:</div>
 
 	<div class="ui buttons">
-		<button class="ui button">myself</button>
+		<button class="ui positive button" ng-click="forFriend = false">myself</button>
 		<div class="or"></div>
 		<button class="ui positive button" ng-click="forFriend = true">a friend</button>
 	</div>
@@ -16,21 +16,22 @@
 	<label>Funds</label>
 	<div class="ui labeled input">
 		<div class="ui label">$</div>
-		<input ng-model="goalForm.money" type="text" placeholder="What is the reward in dollars?" />
+		<input ng-model="goalForm.money" type="text" placeholder="What is the reward?" />
 	</div>
 
 	<label>Goal</label>
-	<input ng-model="goalForm.goal" type="text" placeholder="What would to like to achieve?" />
+	<input ng-model="goalForm.goal" type="text" placeholder="What is your goal?" />
 
 	<label>Organization</label>
-	<input ng-model="goalForm.organization" type="text" placeholder="Where should the money go if the goal is not reached?" />
+	<input ng-model="goalForm.organization" type="text" placeholder="Where should the money go if the goal is not achieved?" />
 
 	<label>Deadline</label>
 	<input ng-model="goalForm.deadline" type="text" placeholder="What is the deadline?" />
 
+	<br /><br />
 	<input class="ui button" type="submit" />
 </form>
 
-<div ng-show="success">
-You have successfully created a new goal!
+<div class="success-msg" ng-show="success">
+	You have successfully created a new goal!
 </div>
