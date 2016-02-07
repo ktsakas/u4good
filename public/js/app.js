@@ -25,7 +25,7 @@ app.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/goals.html',
 		controller: 'goalsCtrl'
 	});
-	
+
 	// $locationProvider.hashPrefix('!');
 	// $locationProvider.html5Mode(true);
 }]);
@@ -67,24 +67,16 @@ app.controller('howCtrl', function ($scope) {
 });
 
 app.controller('newGoalCtrl', function ($scope) {
-	console.log("new goal run");
+	var ref = new Firebase("https://u4good.firebaseio.com/goals/ktsakas");
+	$scope.createGoal = function () {
+		ref.push($scope.goalForm);
+	};
 });
 
-app.controller('goalsCtrl', function ($scope) {
-	$scope.goals = [
-		{'goal': 'Lose Weight',
-		'money': '50$',
-		'time': 2,
-		'organization': 'Unicef'},
-		{'goal': 'Win the lottery',
-		'money': '10$',
-		'time': 1,
-		'organization': 'Gamblers Association'},
-		{'goal': 'Go to the moon',
-		'money': '2$',
-		'time': 2,
-		'organization': 'NASA'}
-	];
+app.controller('goalsCtrl', function ($scope, $firebaseObject) {
+	var ref = new Firebase("https://u4good.firebaseio.com/goals/ktsakas");
+	$scope.goals = $firebaseObject(ref);
+	console.log($scope.goals);
 });
 
 /*app.controller('mainCtrl', ['$scope', '$firebaseObject', function($scope, $firebaseObject) {

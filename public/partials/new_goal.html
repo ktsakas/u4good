@@ -1,2 +1,9 @@
-Set a new goal
-For self | for a friend
+<form ng-submit="createGoal()">
+	Set a new goal<br />
+	For self | for a friend<br />
+	Money: <input ng-model="goalForm.money" type="text" /><br />
+	Goal: <input ng-model="goalForm.goal" type="text" /><br />
+	Organization: <input ng-model="goalForm.organization" type="text" /><br />
+	Deadline: <input ng-model="goalForm.deadline" type="text" /><br />
+	<input type="submit" />
+</form>
