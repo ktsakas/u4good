@@ -49,8 +49,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 
-<!-- 	<script>
-		document.domain = "localhost.dev";
+	<script>
+		// document.domain = "localhost.dev";
 
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -58,19 +58,22 @@
 				xfbml: true,
 				version: 'v2.5'
 			});
+			console.log('super yo');
 		};
 
 		(function(d, s, id) {
+			console.log('yo');
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) {
 				return;
 			}
+			console.log('yo2');
 			js = d.createElement(s);
 			js.id = id;
 			js.src = "//connect.facebook.net/en_US/sdk.js";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
-	</script> -->
+	</script>
 	
 	<script src="js/app.js"></script>
 
