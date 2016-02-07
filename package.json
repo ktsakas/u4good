@@ -1,0 +1,8 @@
+{
+  "name": "u4good",
+  "title": "u4good",
+  "description": "u4good nodejs dependencies",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

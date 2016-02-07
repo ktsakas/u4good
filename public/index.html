@@ -32,6 +32,9 @@
 
 	<div id="footer"></div>
 
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
 	<!-- Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
@@ -42,26 +45,36 @@
 	<!-- AngularFire -->
 	<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 
 	<script>
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId      : '1174109462611048',
-			xfbml      : true,
-			version    : 'v2.5'
-		});
-	};
+		// document.domain = "localhost.dev";
 
-	(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId: '1174109462611048',
+				xfbml: true,
+				version: 'v2.5'
+			});
+			console.log('super yo');
+		};
+
+		(function(d, s, id) {
+			console.log('yo');
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			console.log('yo2');
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
+	
 	<script src="js/app.js"></script>
 
 </body>
