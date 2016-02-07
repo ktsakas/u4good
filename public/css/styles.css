@@ -16,6 +16,10 @@ a {
 	text-decoration: none;
 }
 
+label {
+	display: block;
+}
+
 #header {
 	height: 80px;
 	width: 100%;

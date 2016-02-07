@@ -68,8 +68,12 @@ app.controller('howCtrl', function ($scope) {
 
 app.controller('newGoalCtrl', function ($scope) {
 	var ref = new Firebase("https://u4good.firebaseio.com/goals/ktsakas");
+
 	$scope.createGoal = function () {
-		ref.push($scope.goalForm);
+		ref.push($scope.goalForm, function () {
+			$scope.success = true;
+			$scope.$apply();
+		});
 	};
 });
 
